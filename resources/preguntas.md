@@ -141,3 +141,15 @@ touch .gitignore
 
 docker run -i -p 3030:3030 -p 35729:35729 -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 npm start
 
+9. Cambiar el puerto del servidor, de 3030 al 1042
+
+En el archivo "package.json" modificar 3030 por 1042:
+"start": "remarker serve --source resources/preguntas.md --port 1042",
+
+Luego ejecutar:
+docker run -i -p 3030:1042 -p 35729:35729 -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 npm start
+
+
+
+
+
