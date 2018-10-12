@@ -48,3 +48,17 @@ Porque ese nombre es usado por el registry (docker hub) como una forma de identi
 
 9. ¿Que pasa si creo una imagen sin especificar una versión o tag, con qué versión se crea?
 Se crea con la version lastest.
+
+
+#PARTE 6 comando ejecutar container sh docker run -d -p "1080:80" swosortiz/orbis-training-docker:1.0.0
+
+```
+docker exec -it  swosortiz/orbis-training-docker:1.1.0 /bin/sh
+```
+¿Qué es NGINX?
+
+¿Cómo expongo puertos en docker?
+
+¿Cómo especifico los puertos al levantar un contenedor (docker run)?
+
+¿Cómo hago 'forward' al levantar un contenedor (docker run)?

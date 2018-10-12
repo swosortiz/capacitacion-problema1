@@ -1,0 +1,7 @@
+version: '2'
+services:
+  app:
+    container_name: urbania_test
+    image: swosortiz/orbis-training-docker:1.1.0
+    ports:
+      - "1080:80"

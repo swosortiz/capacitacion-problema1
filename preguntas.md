@@ -50,3 +50,60 @@ git rebase: mueve los commits de una rama y los posiciona sobre otra la rama obj
 git merge: fusiona una rama con otra.
 git branch: lista las ramas locales. Tiene otros argumentos para crear y borrar.
 git push: envia los cambios de una rama local al repositorio remoto
+
+
+# Respuestas parte 05:
+1. Listar las carpetas que hay dentro de la imagen. Para esto es necesario ejecutar el comando bash al hacer docker run, con la imagen<nombre-usuario>/orbis-training-docker:0.2.0 y con solo la bandera -it
+
+docker run -it swosortiz/orbis-training-docker:0.2.0 bash
+ls
+
+- ¿Porqué es necesario crear un contenedor con esta bandera -it ? ¿Qué pasa si no le pongo -it? ¿Para qué sirve ejecutar el comando bash al eejcutar una imagen?
+
+-> -it es un atajo para --interactive y --tty con ese argumento se puede ir hasta dentro del contenedor.
+-> Si no consideramos "-it", el contenedor se ejecutará con su COMMAND definido en la imagen y finalizará sin ejecutar otro comando.
+
+2. ¿Cuál es la diferencia entre docker ps y docker ps -a?
+ Docker ps lista los contenedores activos. 
+ Docker ps -a muestra todos los contenedores tanto activos como otros.
+
+3. Copiar el archivo preguntas.md en la imagen
+
+Usar la imagen <nombre-usuario>/orbis-training-docker:0.2.0
+Dentro de la imagen se debe crear una carpeta llamada app en la ruta base / yluego copiar el archivo preguntas.md en dicha carpeta.
+Finalmente se debe contruir la imagen
+
+---- 
+4. ¿Cuál es la diferencia entre una imagen y un contenedor? 
+Una imagen es una definicion que opupa un espacion en el disco, un contenedor la instanciacion en memoria.
+
+5. ¿Cómo listo las imágenes que hay en mi computadora? 
+
+docker images
+
+6. ¿Cómo salgo de un contenedor de docker? 
+
+exit o ctrl+c
+
+7. ¿Se elimina el contenedor al salir de ella? 
+
+docker run --rm -it <image_name>
+
+8. ¿Cómo elimino un contenedor?
+
+docker rm <container_id>
+
+9. ¿Para qué es necesario el flag -i, -t, --rm?
+
+-i: modo interactivo
+-t: salida tty(terminal)
+--rm: remove after run
+
+10. ¿Cómo verifico que el archivo creado se encuentra en la imagen?
+
+ls -l
+
+11. ¿Cómo se comenta una linea de código en Dockerfile?
+
+Anteponiendo en la linea el caracter:   #
+
