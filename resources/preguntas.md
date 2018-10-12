@@ -13,7 +13,7 @@ Son servicios de alojamiento web para proyectos que utilizan GIT y Mercurial.
 
 3. ¿Qué es y para qué sirve el SSH?
 Es un protocolo de comunicación segura entre 2 sistemas con arquitectura cliente / servidor y que permite a los usuarios conectarse a un host remotamente.
-
+---
 4. ¿Que pasa si cambio de PC? ¿Tendré que generar el SSH nuevamente?¿Por qué?
 Si cambio de PC deberé generar una nueva clave SSH debido es único para cada computadora.
 
@@ -22,7 +22,7 @@ Es un lenguaje de marcado ligero que sirve para crear documentación basado en c
 
 6. ¿Cómo inicializo y configuro un proyecto de git?
 Se debe ejecutar el comando "git init" en la carpeta donde se desea almacenar el nuevo repositorio. Para configurar el repositorio se debe ejecutar el comando "git config" el cual nos permite registrar el correo, usuario y otros.
-
+---
 # Ejercicio 2
 1. ¿Para qué ayuda el `git stash`?
 Para guardar las modificaciones de archivos y almacenarlos de forma temporal sin agregarlos a la rama y sin generar un commit.
@@ -37,7 +37,7 @@ Permite revisar, editar, cambiar commits antes del reordenamiento.
 4. ¿Cual es la diferencia entre la shell y la terminal?
 Shell es un interprete de linea de comandos que se usan para enviar ordenes al computador (ejemplos: bash, zsh, etc).
 Terminal es el medio de entrada donde el usuario interactua para ingresar comandos.
-
+---
 5. ¿Que hace estos comandos? `git clone`, `git status`, `git add`, `git commit`, `git push`, `git checkout`, `git stash`, `git rebase`, `git merge`, `git branch`, `git push`,
 git clone: copia un repositorio remoto
 git status: muestra los archivos sin y con seguimiento
@@ -51,7 +51,7 @@ git merge: fusiona una rama con otra.
 git branch: lista las ramas locales. Tiene otros argumentos para crear y borrar.
 git push: envia los cambios de una rama local al repositorio remoto
 
-
+---
 # Respuestas parte 05:
 1. Listar las carpetas que hay dentro de la imagen. Para esto es necesario ejecutar el comando bash al hacer docker run, con la imagen<nombre-usuario>/orbis-training-docker:0.2.0 y con solo la bandera -it
 
@@ -84,7 +84,7 @@ docker images
 6. ¿Cómo salgo de un contenedor de docker? 
 
 exit o ctrl+c
-
+---
 7. ¿Se elimina el contenedor al salir de ella? 
 
 docker run --rm -it <image_name>
@@ -99,6 +99,7 @@ docker rm <container_id>
 -t: salida tty(terminal)
 --rm: remove after run
 
+---
 10. ¿Cómo verifico que el archivo creado se encuentra en la imagen?
 
 ls -l
@@ -106,7 +107,7 @@ ls -l
 11. ¿Cómo se comenta una linea de código en Dockerfile?
 
 Anteponiendo en la linea el caracter:   #
-
+---
 # Respuestas parte 07:
 3. Listar los archivos de mi proyecto que se encuentran dentro del contenedor usando docker run:
 
@@ -125,3 +126,18 @@ docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 npm i
 b) Visualizar si se instaló npm en el container:
 
 docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 ls /app
+---
+6. Confirmar cambios: Recuerda que git no debe registrar la carpeta node_modules porque el contenido de esta carpeta puede variar y no es importante para nuestro proyecto.
+
+- Crear archivo GitIgnore para excluir /node_modules:
+
+touch .gitignore
+
+- Agregar en GitIgnore la carpeta /node_modules
+
+/node_modules
+
+7. Exponer los puertos 3030 y 35729 en la imagen de docker, luego ejecutar npm start usando docker run:
+
+docker run -i -p 3030:3030 -p 35729:35729 -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 npm start
+

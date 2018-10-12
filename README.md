@@ -74,4 +74,10 @@ b) Visualizar si se instaló npm en el container:
 
 docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 ls /app
 
+7. Exponer los puertos 3030 y 35729 en la imagen de docker, luego ejecutar npm start usando docker run:
+
+docker run -i -p 3030:3030 -p 35729:35729 -v $(pwd):/app -w /app marcoschoque/orbis-training-docker:2.0.0 npm start
+
+
+
 
