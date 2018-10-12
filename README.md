@@ -62,3 +62,16 @@ docker exec -it  swosortiz/orbis-training-docker:1.1.0 /bin/sh
 ¿Cómo especifico los puertos al levantar un contenedor (docker run)?
 
 ¿Cómo hago 'forward' al levantar un contenedor (docker run)?
+
+# PARTE 7:
+5. 
+a) Usando docker run ejecutar npm install. 
+Al volumear se instalará en el contenedor y también en mi host local.
+
+docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 npm install -rm
+
+b) Visualizar si se instaló npm en el container:
+
+docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 ls /app
+
+

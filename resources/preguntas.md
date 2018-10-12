@@ -107,3 +107,21 @@ ls -l
 
 Anteponiendo en la linea el caracter:   #
 
+# Respuestas parte 07:
+3. Listar los archivos de mi proyecto que se encuentran dentro del contenedor usando docker run:
+
+docker run --entrypoint=/bin/ls swosortiz/orbis-training-docker:2.0.0 -l /usr
+
+4. Crear un archivo por la terminal llamado package.json con el siguiente contenido:
+
+touch package.json
+
+5. 
+a) Usando docker run ejecutar npm install. 
+Al volumear se instalará en el contenedor y también en mi host local.
+
+docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 npm install -rm
+
+b) Visualizar si se instaló npm en el container:
+
+docker run -i -v $(pwd):/app -w /app swosortiz/orbis-training-docker:2.0.0 ls /app
